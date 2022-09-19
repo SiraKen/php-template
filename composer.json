@@ -1,0 +1,9 @@
+{
+    "name": "siraken/php-template",
+    "autoload": {
+        "psr-4": {
+            "Siraken\\PhpTemplate\\": "src/"
+        }
+    },
+    "require": {}
+}
