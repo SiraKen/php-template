@@ -2,8 +2,16 @@
     "name": "siraken/php-template",
     "autoload": {
         "psr-4": {
-            "Siraken\\PhpTemplate\\": "src/"
-        }
+            "App\\": "app/"
+        },
+        "files": [
+            "app/functions.php"
+        ]
     },
-    "require": {}
+    "require": {
+        "nesbot/carbon": "^2.62",
+        "fakerphp/faker": "^1.20",
+        "filp/whoops": "^2.14",
+        "vlucas/phpdotenv": "^5.4"
+    }
 }
