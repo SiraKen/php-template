@@ -1,7 +1,10 @@
 #!/bin/bash
+
 FILENAME=$0
 ARGS=${@:2}
 DC="docker compose"
+
+CONTAINER_NAME="app"
 
 case $1 in
 "up")
@@ -12,6 +15,9 @@ case $1 in
     ;;
 "build")
     $DC build $ARGS
+    ;;
+"shell")
+    $DC exec $CONTAINER_NAME bash
     ;;
 *)
     exit 1

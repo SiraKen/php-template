@@ -2,6 +2,7 @@ version: "3"
 
 services:
   app:
+    container_name: app
     build: docker/8.1
     volumes:
       - .:/var/www/html
