@@ -1,3 +1,19 @@
 #!/bin/bash
 FILENAME=$0
 ARGS=${@:2}
+DC="docker compose"
+
+case $1 in
+"up")
+    $DC up $ARGS
+    ;;
+"down")
+    $DC down
+    ;;
+"build")
+    $DC build $ARGS
+    ;;
+*)
+    exit 1
+    ;;
+esac
