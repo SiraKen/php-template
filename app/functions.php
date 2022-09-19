@@ -23,6 +23,18 @@ function hbr($string)
 }
 
 /**
+ * Redirect to another page
+ * 
+ * @param  string $url
+ * @return void
+ */
+function redirect($url)
+{
+    header("Location: $url");
+    exit;
+}
+
+/**
  * 
  */
 function component($component_name, $data = [])
