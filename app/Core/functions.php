@@ -83,6 +83,10 @@ function session($key, $value = null)
 
 /**
  * Config
+ * 
+ * @param  string $key
+ * @param  mixed $value
+ * @return mixed
  */
 function config($key, $value = null)
 {
@@ -91,4 +95,17 @@ function config($key, $value = null)
     } else {
         $_ENV[$key] = $value;
     }
+}
+
+/**
+ * JSON
+ * 
+ * @param  mixed $data
+ * @return void
+ */
+function json($data)
+{
+    header('Content-Type: application/json');
+    echo json_encode($data);
+    exit;
 }
