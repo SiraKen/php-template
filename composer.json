@@ -20,7 +20,8 @@
             "App\\": "app/"
         },
         "files": [
-            "app/Core/functions.php"
+            "app/Core/functions.php",
+            "app/Config/Database.php"
         ]
     },
     "autoload-dev": {
