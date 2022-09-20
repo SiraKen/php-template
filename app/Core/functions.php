@@ -109,3 +109,30 @@ function json($data)
     echo json_encode($data);
     exit;
 }
+
+/**
+ * d - shorthand for var_dump
+ * 
+ * @param  mixed $data
+ * @return void
+ */
+function d()
+{
+    array_map(function ($x) {
+        var_dump($x);
+    }, func_get_args());
+}
+
+/**
+ * dd - shorthand for var_dump and die
+ * 
+ * @param  mixed $data
+ * @return void
+ */
+function dd()
+{
+    array_map(function ($x) {
+        var_dump($x);
+    }, func_get_args());
+    die;
+}
