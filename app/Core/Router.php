@@ -63,8 +63,6 @@ class Router
                 } else {
                     throw new \Exception("Controller action not found: {$target[0]}@{$target[1]}");
                 }
-            } else if (is_callable($target)) {
-                call_user_func_array($target, $match["params"]);
             } else {
                 throw new \Exception("Route target not found: {$target}");
             }
