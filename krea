@@ -29,7 +29,8 @@ switch ($action) {
     case preg_match('/^(serve|start|s)$/', $action) ? true : false:
         $host = $arguments[0] ?? 'localhost';
         $port = $arguments[1] ?? 8000;
-        $cmd->serve($host, $port);
+        $open = $arguments[2] ?? false;
+        $cmd->serve($host, $port, $open);
         break;
     default:
         $cmd->not_found();

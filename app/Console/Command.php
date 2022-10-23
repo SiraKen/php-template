@@ -162,16 +162,17 @@ EOT;
      * 
      * @param string $host
      * @param string $port
+     * @param bool $open
      * @return void
      */
-    public function serve($host = "localhost", $port = 8000)
+    public function serve($host = "localhost", $port = 8000, $open = false)
     {
         echo Message::success("Server started on http://$host:$port\n");
         echo Message::info("Press Ctrl+C to stop the server\n");
 
         $cmd = "php -S $host:$port -t public";
 
-        if (PHP_OS === "Darwin") {
+        if (PHP_OS === "Darwin" && $open) {
             $cmd = "open http://$host:$port && $cmd";
         }
 
