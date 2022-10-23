@@ -13,35 +13,100 @@ class Router
         self::$router = new AltoRouter();
     }
 
+    /**
+     * GET
+     * @param $path
+     * @param $target
+     * @param null $name
+     */
     public static function get($path, $target, $name = null)
     {
         self::$router->map("GET", $path, $target, $name);
     }
 
+    /**
+     * POST
+     * @param $path
+     * @param $target
+     * @param null $name
+     */
     public static function post($path, $target, $name = null)
     {
         self::$router->map("POST", $path, $target, $name);
     }
 
+    /**
+     * PUT
+     * @param $path
+     * @param $target
+     * @param null $name
+     */
     public static function put($path, $target, $name = null)
     {
         self::$router->map("PUT", $path, $target, $name);
     }
 
+    /**
+     * PATCH
+     * @param $path
+     * @param $target
+     * @param null $name
+     */
     public static function patch($path, $target, $name = null)
     {
         self::$router->map("PATCH", $path, $target, $name);
     }
 
+    /**
+     * DELETE
+     * @param $path
+     * @param $target
+     * @param null $name
+     */
     public static function delete($path, $target, $name = null)
     {
         self::$router->map("DELETE", $path, $target, $name);
     }
 
+    /**
+     * OPTIONS
+     * @param $path
+     * @param $target
+     * @param null $name
+     */
+    public static function options($path, $target, $name = null)
+    {
+        self::$router->map("OPTIONS", $path, $target, $name);
+    }
+
+    /**
+     * HEAD
+     * @param $path
+     * @param $target
+     * @param null $name
+     */
+    public static function head($path, $target, $name = null)
+    {
+        self::$router->map("HEAD", $path, $target, $name);
+    }
+
+    /**
+     * Match
+     * @param $path
+     * @param $target
+     * @param null $name
+     */
+    public static function match($path, $target, $name = null)
+    {
+        self::$router->map("GET|POST|PUT|PATCH|DELETE|OPTIONS|HEAD", $path, $target, $name);
+    }
+
+    /**
+     * Dispatch
+     */
     public static function dispatch()
     {
         $match = self::$router->match();
-        // var_dump($match);
 
         if ($match) {
             $target = $match["target"];
