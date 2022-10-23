@@ -1,0 +1,37 @@
+#!/usr/bin/env php
+<?php
+require_once __DIR__ . '/vendor/autoload.php';
+
+use App\Console\Command;
+
+$cmd = new Command();
+
+$action = $argv[1];
+$arguments = array_slice($argv, 2);
+
+switch ($action) {
+    case preg_match('/^(make|create):controller$/', $action) ? true : false:
+        $cmd->create_controller($arguments[0]);
+        break;
+    case preg_match('/^(make|create):model$/', $action) ? true : false:
+        $cmd->create_model($arguments[0]);
+        break;
+        // TODO: Add more commands
+    case preg_match('/^(make|create):migration$/', $action):
+        $cmd->create_migration($arguments[0]);
+        break;
+    case preg_match('/^(make|create):middleware$/', $action):
+        $cmd->create_middleware($arguments[0]);
+        break;
+    case preg_match('/^(make|create):seeder$/', $action):
+        $cmd->create_seeder($arguments[0]);
+        break;
+    case preg_match('/^(serve|start|s)$/', $action) ? true : false:
+        $host = $arguments[0] ?? 'localhost';
+        $port = $arguments[1] ?? 8000;
+        $cmd->serve($host, $port);
+        break;
+    default:
+        $cmd->not_found();
+        break;
+}
